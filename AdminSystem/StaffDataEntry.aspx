@@ -7,10 +7,31 @@
     <title></title>
 </head>
 <body>
-    this is the order page
     <form id="form1" runat="server">
         <div>
         </div>
+        <asp:Label ID="lblStaffID" runat="server" Text="Staff ID" width="75px"></asp:Label>
+        <asp:TextBox ID="txtStaffID" runat="server"></asp:TextBox>
+        <p>
+            <asp:Label ID="lblFirstName" runat="server" Text="First Name" width="75px"></asp:Label>
+            <asp:TextBox ID="FirstName" runat="server" OnTextChanged="TextBox2_TextChanged"></asp:TextBox>
+        </p>
+        <asp:Label ID="lblLastName" runat="server" Text="Last Name" width="75px"></asp:Label>
+        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+        <p>
+            <asp:Label ID="lblDepartment" runat="server" Text="Department  "></asp:Label>
+            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+        </p>
+        <asp:Label ID="lblDate" runat="server" Text="Date" width="75px"></asp:Label>
+        <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+        <p>
+            <asp:CheckBox ID="chkStatus" runat="server" Text="Status" />
+        </p>
+        <asp:Label ID="lblError" runat="server"></asp:Label>
+        <p>
+            <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" />
+            <asp:Button ID="btnCancel" runat="server" Text="Cancel" Width="84px" />
+        </p>
     </form>
 </body>
 </html>
