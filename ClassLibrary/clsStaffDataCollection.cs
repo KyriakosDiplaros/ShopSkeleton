@@ -7,6 +7,15 @@ using System.Collections.Generic;
 namespace ClassLibrary
 {
 
+    public class clsStaffDataCollection()
+    {
+        List<clsStaffData> mStaffList = new List<clsStaffData>();
+    clsStaffData mThisStaffData = new clsStaffData();
+
+
+
+}
+
     public clsStaffDataCollection()
     {
         Int32 Index = 0;
@@ -54,3 +63,27 @@ public int Count
 
     }
 }
+
+public clsStaffData ThisStaffData
+{
+    get
+    {
+        return mThisStaffData;
+    }
+    set
+    {
+        mThisAddress = value;
+    }
+}
+
+
+public int Add()
+    {
+    clsDataConnection DB = new clsDataConnection
+    DB.AddParameter("@StaffID", mThisStaffData.StaffID);
+    DB.AddParameter("@FirstName", mThisStaffData.FirstName);
+    DB.AddParameter("@LastName", mThisStaffData, LastName);
+    DB.AddParameter("@Department", mThisStaffData, Department);
+    DB.AddParameter("@JoinDate", mThisStaffData, JoinDate);
+    DB.AddParameter("@Active", mThisStaffData, Active);
+    return DB.Execute("sproc_tblStaffData_Insert");

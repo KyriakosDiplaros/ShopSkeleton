@@ -34,8 +34,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AStaff.Department = Department;
             AStaff.StaffID = StaffID;
             AStaff.JoinDate = Convert.ToDateTime(JoinDate);
-            Session["AStaff"] = AStaff;
-            Response.Write("StaffViewer.aspx");
+            clsStaffDataCollection StaffList = new clsStaffDataCollection();
+            StaffList.ThisStaff = AStaff;
+            StaffList.Add();
+            Response.Write("StaffList.aspx");
         }
         else
         {
@@ -70,5 +72,12 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtJoinDate.Text = AStaff.JoinDate;
            
         }
+    }
+
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        Session["StaffID"] = -1;
+        Response.Redirect("AStaff.aspx");
+
     }
 }

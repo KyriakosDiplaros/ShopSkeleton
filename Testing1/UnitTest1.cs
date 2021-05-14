@@ -68,3 +68,22 @@ public void TwoRecordsPresent()
     clsStaffDataCollection AllStaffs = new clsStaffDataCollection();
     Assert.AreEqual(AllAddresses.Count, 2);
 }
+
+[TestMethod]
+public void AddMethodOK()
+{
+    clsStaffDataCollection AllStaffs = new clsStaffDataCollection();
+    clsStaffData TestItem = new clsStaffData();
+    Int32 PrimaryKey = 10;
+    TestItem.StaffID = 10;
+    TestItem.FirstName = "Kyriakos";
+    TestItem.LastName = "Diplaros";
+    TestItem.Department = "Owner";
+    TestItem.JoinDate = DateTime.Now.Date;
+    TestItem.StaffStatus = true;
+    AllStaffs.ThisStaff = TestItem;
+    PrimaryKey = AllStaffs.Add();
+    TestItem.StaffID = PrimaryKey;
+    AllStaffs.ThisStaff.Find(PrimaryKey);
+    Assert.AreEqual(AllStaffs.ThisStaff, TestItem);
+}
