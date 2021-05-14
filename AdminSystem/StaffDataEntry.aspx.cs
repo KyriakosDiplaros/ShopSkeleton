@@ -20,9 +20,28 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         clsStaffData AStaff = new clsStaffData();
-        AStaff.FirstName = txtFirstName.Text;
-        Session["AStaff"] = AStaff;
-        Response.Redirect("StaffViewer.aspx");
+        string FirstName = txtFirstName.Text;
+        string LastName = txtLastName.Text;
+        string Department = txtDepartment.Text;
+        string StaffID = txtStaffID.Text;
+        string JoinDate = txtJoinDate.Text;
+        string Error = "";
+        Error = AStaff.Valid(FirstName, LastName, Department, StaffID, JoinDate);
+        if (Error == "")
+        {
+            AStaff.FirstName = FirstName;
+            AStaff.LastName = LastName;
+            AStaff.Department = Department;
+            AStaff.StaffID = StaffID;
+            AStaff.JoinDate = Convert.ToDateTime(JoinDate);
+            Session["AStaff"] = AStaff;
+            Response.Write("StaffViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
+        
     }
 
     protected void TextBox2_TextChanged(object sender, EventArgs e)
