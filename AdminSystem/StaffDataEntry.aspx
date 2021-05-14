@@ -11,19 +11,19 @@
         <div>
         </div>
         <asp:Label ID="lblStaffID" runat="server" Text="Staff ID" width="75px"></asp:Label>
-        <asp:TextBox ID="txtStaffID" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtStaffID" runat="server" OnTextChanged="txtStaffID_TextChanged"></asp:TextBox>
         <p>
             <asp:Label ID="lblFirstName" runat="server" Text="First Name" width="75px"></asp:Label>
-            <asp:TextBox ID="FirstName" runat="server" OnTextChanged="TextBox2_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="txtFirstName" runat="server" OnTextChanged="TextBox2_TextChanged"></asp:TextBox>
         </p>
         <asp:Label ID="lblLastName" runat="server" Text="Last Name" width="75px"></asp:Label>
-        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
         <p>
             <asp:Label ID="lblDepartment" runat="server" Text="Department  "></asp:Label>
-            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtDepartment" runat="server"></asp:TextBox>
         </p>
         <asp:Label ID="lblDate" runat="server" Text="Date" width="75px"></asp:Label>
-        <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtDate" runat="server"></asp:TextBox>
         <p>
             <asp:CheckBox ID="chkStatus" runat="server" Text="Status" />
         </p>

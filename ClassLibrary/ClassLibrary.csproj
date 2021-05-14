@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="clsStaffData.cs" />
-    <Compile Include="clsStaffFinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
