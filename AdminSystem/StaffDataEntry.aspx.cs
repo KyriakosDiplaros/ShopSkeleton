@@ -34,8 +34,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AStaff.Department = Department;
             AStaff.StaffID = StaffID;
             AStaff.JoinDate = Convert.ToDateTime(JoinDate);
-            Session["AStaff"] = AStaff;
-            Response.Write("StaffViewer.aspx");
+            clsStaffDataCollection StaffList = new clsStaffDataCollection();
+            StaffList.ThisStaff = AStaff;
+            StaffList.Add();
+            Response.Write("StaffList.aspx");
         }
         else
         {
@@ -69,6 +71,29 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtDepartment.Text = AStaff.Department;
             txtJoinDate.Text = AStaff.JoinDate;
            
+        }
+    }
+
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        Session["StaffID"] = -1;
+        Response.Redirect("AStaff.aspx");
+
+    }
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        Int32 StaffID;
+        if (lstStaffList.SelectIndex != -1)
+        {
+            StaffID = Convert.ToInt32(lstStaffList.SelectedValue);
+            Session["StaffID"] = StaffID;
+            Response.Redirect("AStaff.aspx");
+
+        }
+        else
+        {
+            lblError.Text = "Please select a record from the list";
         }
     }
 }
