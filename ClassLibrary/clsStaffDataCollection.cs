@@ -78,7 +78,7 @@ public clsStaffData ThisStaffData
 
 
 public int Add()
-    {
+{
     clsDataConnection DB = new clsDataConnection
     DB.AddParameter("@StaffID", mThisStaffData.StaffID);
     DB.AddParameter("@FirstName", mThisStaffData.FirstName);
@@ -87,3 +87,17 @@ public int Add()
     DB.AddParameter("@JoinDate", mThisStaffData, JoinDate);
     DB.AddParameter("@Active", mThisStaffData, Active);
     return DB.Execute("sproc_tblStaffData_Insert");
+}
+
+
+public void Update()
+{
+    clsDataConnection DB = new clsDataConnection();
+    DB.AddParameter("@StaffID", mThisStaff.StaffID);
+    DB.AddParameter("@FirstName", mThisStaff.FirstName);
+    DB.AddParameter("@LastName", mthisStaff.LastName);
+    DB.AddParameter("@Department", mThisStaff.Department);
+    DB.AddParameter("@JoinDate", mThisStaff.JoinDate);
+    DB.AddParameter("@Active", mThisStaff.Active);
+    DB.Execute("sproc)tblStaffData_Update");
+}

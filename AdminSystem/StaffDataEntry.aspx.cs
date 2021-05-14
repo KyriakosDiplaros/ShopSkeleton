@@ -80,4 +80,20 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Response.Redirect("AStaff.aspx");
 
     }
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        Int32 StaffID;
+        if (lstStaffList.SelectIndex != -1)
+        {
+            StaffID = Convert.ToInt32(lstStaffList.SelectedValue);
+            Session["StaffID"] = StaffID;
+            Response.Redirect("AStaff.aspx");
+
+        }
+        else
+        {
+            lblError.Text = "Please select a record from the list";
+        }
+    }
 }

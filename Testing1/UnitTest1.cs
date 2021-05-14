@@ -87,3 +87,33 @@ public void AddMethodOK()
     AllStaffs.ThisStaff.Find(PrimaryKey);
     Assert.AreEqual(AllStaffs.ThisStaff, TestItem);
 }
+
+[TestMethod]
+public void UpdateMethodOK()
+{
+    clsStaffDataCollection AllStaffs = new clsStaffDataCollection();
+    clsStaffData TestItem = new clsStaffData();
+    Int32 PrimaryKey = 0;
+    TestItem.StaffID = 10;
+    TestItem.FirstName = "Kyriakos";
+    TestItem.LastName = "Diplaros";
+    TestItem.Department = "Owner";
+    TestItem.JoinDate = DateTime.Now.Date;
+    TestItem.Active = true;
+    AllStaffs.ThisStaff = TestItem;
+    PrimaryKey = AllStaffs.Add();
+    TestItem.StaffID = TestItem;
+    PrimaryKey = AllStaffs.Add();
+    TestItem.StaffID = PrimaryKey;
+    TestItem.StaffID = 9;
+    TestItem.FirstName = "Will";
+    TestItem.LastName = "Coral";
+    TestItem.Department = "Staff Management";
+    TestItem.JoinDate = DateTime.Now.Date;
+    TestItem.Active = true;
+    AllStaffs.ThisStaff = TestItem;
+    AllStaffs.Update();
+    AllStaffs.ThisStaff.Find(PrimaryKey);
+    Assert.AreEqual(AllStaffs.ThisStaff, TestItem);
+
+}
