@@ -8,9 +8,9 @@ namespace ClassLibrary
     public class clsStaffData
     {
 
-        private Int32 mStaffID;
+        private String mStaffID;
         
-        public Int32 StaffID
+        public string StaffID
         {
             get
             {
@@ -29,7 +29,7 @@ namespace ClassLibrary
         {
             get
             {
-                return mFirstName
+                return mFirstName;
             }
             set
             {
@@ -43,7 +43,7 @@ namespace ClassLibrary
         {
             get
             {
-                return mLastName
+                return mLastName;
             }
             set
             {
@@ -58,7 +58,7 @@ namespace ClassLibrary
         {
             get
             {
-                return mDepartment
+                return mDepartment;
             }
             set
             {
@@ -107,7 +107,7 @@ namespace ClassLibrary
             {
 
 
-                mStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
+                mStaffID = Convert.ToString(DB.DataTable.Rows[0]["StaffID"]);
                 mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
                 mLastName = Convert.ToString(DB.DataTable.Rows[0]["LastName"]);
                 mDepartment = Convert.ToString(DB.DataTable.Rows[0]["Department"]);
