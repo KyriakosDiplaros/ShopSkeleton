@@ -100,14 +100,24 @@ namespace ClassLibrary
 
         public bool Find(int staffID)
         {
-            mStaffID = 10;
-            mFirstName = "Kyriakos";
-            mLastName = "Diplaros";
-            mDepartment = "Owner";
-            mJoinDate = Convert.ToDateTime("03/05/2019")
-            mActive = true;
-            
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@StaffID", StaffID);
+            DB.Execute("sproc_tblStaffData_FilterByStaffID");
+            if (DB.Count == 1)
+            {
 
+
+                mStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
+                mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
+                mLastName = Convert.ToString(DB.DataTable.Rows[0]["LastName"]);
+                mDepartment = Convert.ToString(DB.DataTable.Rows[0]["Department"]);
+                mJoinDate = Convert.ToDateTime(DB.DataTable.Rows[0]["JoinDate"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+            }
+            else
+            {
+                return false;
+            }
         
             //always return true
             return true;
